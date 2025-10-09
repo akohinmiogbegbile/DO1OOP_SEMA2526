@@ -52,6 +52,7 @@ public class Player {
     }
 
     // Quick status string (return example)
+    //Printing all player Info
     public String getStatus() {
         return playerName + " (" + playerPosition + ") - Goals: " + noOfGoals + ", Fitness: " + fitnessLevel + ", Injured: " + isInjured;
     }
