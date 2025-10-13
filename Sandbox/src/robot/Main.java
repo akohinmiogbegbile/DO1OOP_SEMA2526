@@ -2,22 +2,26 @@ package robot;
 
 public class Main {
 
-	public static void main(String[] args) {
-		//Controlling the behaviour of a robot that moves around a grid system. 
-		
-		Robot r = new Robot();
-		r.moveUp();
-		System.out.println("(" + r.x + "," + r.y + ")");
-		
-		r.moveDown();
-		System.out.println("(" + r.x + "," + r.y + ")");
-		
-		r.moveLeft();
-		System.out.println("(" + r.x + "," + r.y + ")");
-		
-		r.moveRight();
-		System.out.println("(" + r.x + "," + r.y + ")");
+    public static void main(String[] args) {
+        Robot r = new Robot();
 
-	}
+        // Starting position: (2, 1)
+        System.out.println("(" + r.x + ", " + r.y + ")");
 
+        
+        r.moveUp(1);   
+        System.out.println("(" + r.x + ", " + r.y + ")");
+
+        r.moveUp(2);   
+        System.out.println("(" + r.x + ", " + r.y + ")");
+
+        r.moveRight(2); 
+        System.out.println("(" + r.x + ", " + r.y + ")");
+
+        r.moveRight(1); 
+        System.out.println("(" + r.x + ", " + r.y + ")");
+
+        r.moveDown(3);  
+        System.out.println("(" + r.x + ", " + r.y + ")");
+    }
 }
