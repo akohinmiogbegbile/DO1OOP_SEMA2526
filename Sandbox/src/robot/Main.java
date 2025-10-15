@@ -8,20 +8,17 @@ public class Main {
         // Starting position: (2, 1)
         System.out.println("(" + r.x + ", " + r.y + ")");
 
-        
-        r.moveUp(1);   
-        System.out.println("(" + r.x + ", " + r.y + ")");
+        boolean isMoveValid =
+        	    r.moveRight(1) &&
+        	    r.moveUp(1) &&
+        	    r.moveDown(2) &&
+        	    r.moveLeft(1);
 
-        r.moveUp(2);   
-        System.out.println("(" + r.x + ", " + r.y + ")");
+        	if (isMoveValid) {
+        	    System.out.println("(" + r.x + ", " + r.y + ")");
+        	} else {
+        	    System.out.println("Invalid Move");
+        	}
 
-        r.moveRight(2); 
-        System.out.println("(" + r.x + ", " + r.y + ")");
-
-        r.moveRight(1); 
-        System.out.println("(" + r.x + ", " + r.y + ")");
-
-        r.moveDown(3);  
-        System.out.println("(" + r.x + ", " + r.y + ")");
-    }
-}
+  }
+} 
