@@ -11,8 +11,9 @@ public class Main {
 		//Or to be more efficient...
 		System.out.println("\nUsing displayDetails():");
         b1.displayDetails();
-        
+        //Task Test
         //This will not work as it's trying to access a private attribute directly
         //System.out.println(b1.title);
+        
 	}
 }
