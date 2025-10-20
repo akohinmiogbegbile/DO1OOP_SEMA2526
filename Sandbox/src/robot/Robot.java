@@ -1,10 +1,37 @@
 package robot;
 
 public class Robot {
-	//The robot lives on a grid, whose top row has y=0
-	int x = 2;
-	int y = 1;
+	//private attributes where only this class can access them
+	private int x;
+	private int y;
 	
+	//This will be the constructor that will run every time we make a new robot object
+	public Robot (int startX, int startY) {
+		x = startX;
+		y = startY;
+	}
+	
+	public Robot() {
+		x = 2;
+		y = 1;
+	}
+	
+	//Public methods, a safe way to read private attributes
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	
+	//Method to display
+	//public void displayAllInfo() {
+	//	System.out.println("(" + r.getX() + ", " + r.getY() + ")");
+
+	//}
+	
+	
+	//This is how the robot actually moves
 	public boolean moveUp(int distance) {
 		if (distance >= 1) {
 			//check that moving won't go above the grid (0-4)
