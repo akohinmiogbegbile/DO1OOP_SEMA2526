@@ -14,12 +14,17 @@ public class ArrayListStarter {
 		
 		System.out.println("All Results\n-----------\n" + r.getAllResults());
 		
+		
+		
 		System.out.println("Fastest time: " + r.getFastest());
 		System.out.println("Slowest time: " + r.getSlowest());
 		System.out.println("Average time: " + r.getAverage());
 		
 		System.out.println();
 		
+		 // Test getBelow
+        System.out.println("Results below 12.0:");
+        System.out.println(r.getBelow(12.0));
 	}
 
 }
