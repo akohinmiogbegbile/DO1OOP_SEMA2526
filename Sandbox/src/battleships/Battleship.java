@@ -184,6 +184,6 @@ public class Battleship {
 
 	}
 
-	//2
+	//2 test
 
 }
