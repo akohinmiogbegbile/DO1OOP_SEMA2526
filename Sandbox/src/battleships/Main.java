@@ -8,7 +8,7 @@ public class Main {
 		 Scanner sc = new Scanner(System.in);
 
 		 
-			
+			//2 test
 		 // Pre-game: choose grid size
 
 		 System.out.println("Welcome to Battleships!");
