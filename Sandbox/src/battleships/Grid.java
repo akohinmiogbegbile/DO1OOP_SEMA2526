@@ -10,7 +10,7 @@ public class Grid {
 	// Constructor: generate grid (max 10 x 10)
 
 	public Grid(int gridSize) {
-		
+		//2 test
  
 
  size = gridSize;
