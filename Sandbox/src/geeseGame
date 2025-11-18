@@ -1,0 +1,125 @@
+float gooseX, gooseY;
+float itemX, itemY;
+int score = 0;
+int highScore = 0;
+float speed = 4;
+boolean gameOver = false;
+
+void setup() {
+  size(800, 600);
+  gooseX = width / 2;
+  gooseY = height / 2;
+  spawnNewItem();
+}
+
+void draw() {
+
+  if (gameOver) {
+    background(0);
+    fill(255);
+    textSize(36);
+    text("GAME OVER!", width/2 - 120, height/2 - 60);
+
+    textSize(24);
+    text("Score: " + score, width/2 - 45, height/2 - 10);
+    text("High Score: " + highScore, width/2 - 70, height/2 + 25);
+
+    text("Press R to Restart", width/2 - 90, height/2 + 80);
+    return;
+  }
+
+  background(135, 206, 250);
+
+  drawWaterWaves();
+  drawGoose(gooseX, gooseY);
+  drawItem(itemX, itemY);
+
+  drawScore();
+  drawHighScore();
+
+  moveGoose();
+  checkCollection();
+  checkDeath();
+}
+
+void drawGoose(float x, float y) {
+  fill(255);
+  ellipse(x, y, 50, 35);
+  ellipse(x + 30, y - 10, 25, 25);
+
+  fill(255, 165, 0);
+  triangle(x + 40, y - 10, x + 55, y - 5, x + 40, y);
+}
+
+void drawItem(float x, float y) {
+  fill(255, 215, 0);
+  ellipse(x, y, 20, 20);
+}
+
+void moveGoose() {
+  if (keyPressed) {
+    if (keyCode == UP)    gooseY -= speed;
+    if (keyCode == DOWN)  gooseY += speed;
+    if (keyCode == LEFT)  gooseX -= speed;
+    if (keyCode == RIGHT) gooseX += speed;
+  }
+}
+
+void checkCollection() {
+  float d = dist(gooseX, gooseY, itemX, itemY);
+
+  if (d < 40) {
+    score++;
+    spawnNewItem();
+  }
+}
+
+void checkDeath() {
+  if (gooseX <= 0 || gooseX >= width || gooseY <= 0 || gooseY >= height) {
+    gameOver = true;
+    if (score > highScore) {
+      highScore = score;
+    }
+  }
+}
+
+void spawnNewItem() {
+  itemX = random(50, width - 50);
+  itemY = random(50, height - 50);
+}
+
+void drawScore() {
+  fill(0);
+  textSize(24);
+  text("Score: " + score, 20, 40);
+}
+
+void drawHighScore() {
+  fill(0);
+  textSize(24);
+  text("High Score: " + highScore, width - 200, 40);
+}
+
+void drawWaterWaves() {
+  stroke(255, 255, 255, 60);
+  strokeWeight(2);
+  for (int i = 0; i < height; i += 40) {
+    line(0, i, width, i);
+  }
+  noStroke();
+}
+
+void keyPressed() {
+  if (gameOver && (key == 'r' || key == 'R')) {
+    resetGame();
+  }
+}
+
+void resetGame() {
+  score = 0;
+  speed = 4;
+  gameOver = false;
+  gooseX = width / 2;
+  gooseY = height / 2;
+  spawnNewItem();
+}
